@@ -2,7 +2,7 @@
 title: Adding a new external site
 description: 
 published: 1
-date: 2022-12-17T10:59:26.480Z
+date: 2022-12-17T11:39:54.057Z
 tags: 
 editor: markdown
 dateCreated: 2022-12-17T10:17:48.978Z
@@ -13,11 +13,11 @@ How to add a new external facing site with authelia protection
 ## Cloudflare configuration
 1. Sign into [Cloudflare](https://dash.cloudflare.com/login)
 2. Navigate to the [DNS records](https://dash.cloudflare.com/d2df6a48421f6ec20bbc7dcd74228df3/steve-fisher.me/dns/records) for the steve-fisher.me domain
-3. Add a new new CNAME record for the site you wish to proxy![cloudflare-dns-cname.png](/home-lab/cloudflare-dns-cname.png)
+3. Add a new new CNAME record for the site you wish to proxy![cloudflare-dns-cname.png](/images/cloudflare-dns-cname.png)
 ## Nginx configuration
 1. Sign into [Nginx Proxy Manager](http://192.168.0.2:7818/)
 2. Select 'Add Proxy Host'
-![nginx-add-proxy-host.png](/home-lab/nginx-add-proxy-host.png)
+![nginx-add-proxy-host.png](/images/nginx-add-proxy-host.png)
 3. Add the details of the internal site you wish to expose
 a. **Domain Names:** The required external domain name - this should use a steve-fisher.me domain
 b. **Scheme:** [select either http or https depending on the configuration of the internal site]
@@ -25,9 +25,9 @@ c. **Forward Hostname / IP:** The ip or hostname of the internal site
 d. **Forward Port:** The port the internal site is running on
 e. Turn on *Cache Assets*, *Block Common Exploits* and *Websockets Support* but experiment if any problems are experienced
 f. Leave Access List set to Publicly Accessible
-![nginx-edit-proxy-host-details.png](/home-lab/nginx-edit-proxy-host-details.png)
+![nginx-edit-proxy-host-details.png](/images/nginx-edit-proxy-host-details.png)
 4. Set the SSL Certificate to be *Cloudflare* and turn on both *Force SSL* and *HTTP/2 Support*
-![nginx-edit-proxy-host-ssl.png.png](/home-lab/nginx-edit-proxy-host-ssl.png.png)
+![nginx-edit-proxy-host-ssl.png.png](/images/nginx-edit-proxy-host-ssl.png.png)
 5. In the advanced section add the following custom Nginx Configuration
 ```
 location /authelia {
